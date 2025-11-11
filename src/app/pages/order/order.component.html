@@ -1,0 +1,79 @@
+<div class="container mb-5 d-flex flex-column align-items-center">
+  <h2 class="mb-4 mt-5 pt-4 fw-bold text-center">Сделать заказ</h2>
+
+  <div class="col-lg-6 m-auto" *ngIf="!orderSuccess; else successTemplate">
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+      <div class="form-row row mb-2">
+        <div class="col col-lg-4">
+          <label for="name" class="form-label">Имя</label>
+          <input type="text" class="form-control" formControlName="name" required>
+          <div class="text-danger small" *ngIf="isFieldInvalid('name')">
+            Можно вводить только буквы
+          </div>
+        </div>
+        <div class="col col-lg-4">
+          <label for="lastName" class="form-label">Фамилия</label>
+          <input type="text" class="form-control" formControlName="last_name" required>
+          <div class="text-danger small" *ngIf="isFieldInvalid('last_name')">
+            Можно вводить только буквы
+          </div>
+        </div>
+        <div class="col col-lg-4">
+          <label for="phone" class="form-label">Телефон</label>
+          <input type="text" class="form-control" formControlName="phone" required>
+          <div class="text-danger small" *ngIf="isFieldInvalid('phone')">
+            Номер должен содержать 11 цифр (может начинаться с +)
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row row mb-3">
+        <div class="form-group col-md-6">
+          <label for="country" class="form-label">Страна</label>
+          <input type="text" class="form-control" formControlName="country" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="zip" class="form-label">Индекс</label>
+          <input type="number" maxlength="6" class="form-control" formControlName="zip">
+        </div>
+      </div>
+
+      <div class="form-group col-md mb-3">
+        <label for="product" class="form-label">Товар</label>
+        <input type="text" class="form-control" formControlName="product" [disabled]="true">
+      </div>
+
+      <div class="form-group col-md mb-3">
+        <label for="address" class="form-label">Адрес</label>
+        <input type="text" class="form-control" formControlName="address" required>
+        <div class="text-danger small" *ngIf="isFieldInvalid('address')">
+          Можно вводить только буквы, цифры, пробелы, дефис и слеш
+        </div>
+      </div>
+
+      <div class="form-group col-md mb-4">
+        <label for="comment" class="form-label">Комментарий к заказу</label>
+        <textarea class="form-control" formControlName="comment" rows="3"></textarea>
+      </div>
+
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary"
+                [disabled]="orderForm.invalid || submitting">
+          <span *ngIf="submitting" class="spinner-border spinner-border-sm me-2"></span>
+          Отправить заказ
+        </button>
+      </div>
+
+      <div *ngIf="orderError" class="alert alert-danger mt-3 text-center" role="alert">
+        Произошла ошибка. Попробуйте еще раз.
+      </div>
+    </form>
+  </div>
+
+  <ng-template #successTemplate>
+    <div class="alert alert-success text-center col-lg-6" role="alert">
+      <h4 class="alert-heading">Спасибо за заказ!</h4>
+      <p>Ваш заказ успешно оформлен.</p>
+    </div>
+  </ng-template>
+</div>
