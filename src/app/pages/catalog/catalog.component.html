@@ -7,7 +7,7 @@
         <img [src]="tea.image" class="card-img-top" [alt]="tea.title">
         <div class="card-body">
           <h5 class="card-title">{{ tea.title }}</h5>
-          <p class="card-text">{{ tea.description }}</p>
+          <p class="card-text">{{ tea.description | descriptionSubstring }}</p>
           <p class="h5 text-primary">{{ tea.price }} ₽</p>
           <a [routerLink]="['/product', tea.id]" class="btn btn-primary stretched-link">Подробнее</a>
         </div>

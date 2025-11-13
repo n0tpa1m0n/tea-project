@@ -18,8 +18,8 @@ export class TeaService {
 
   constructor(private http: HttpClient) { }
 
-  getTeas(): Observable<Tea[]> {
-    return this.http.get<Tea[]>(this.apiUrl);
+  getTeas(value?: string): Observable<Tea[]> {
+    return this.http.get<Tea[]>(`${this.apiUrl}${value ? `?search=${value}` : ''}` );
   }
 
   getTeaById(id: number): Observable<Tea> {

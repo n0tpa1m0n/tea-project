@@ -29,21 +29,7 @@
   <app-popup *ngIf="showPopup" (close)="closePopup()" (viewCatalog)="navigateToCatalog()"></app-popup>
 </div>
 
-<h1 class="text-center fs-3 mt-5 mb-4 pt-4 fw-bold">Наши чайные коллекции</h1>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-    <div class="col" *ngFor="let tea of featuredTeas">
-      <div class="card h-100 w-100 wow bounce">
-        <img [src]="tea.image" class="card-img-top" [alt]="tea.title">
-        <div class="card-body">
-          <h5 class="card-title">{{ tea.title }}</h5>
-          <p class="card-text">{{ tea.description }}</p>
-          <a [routerLink]="['/product', tea.id]" class="btn btn-primary stretched-link">Подробнее</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <div class="container mb-5 d-flex flex-column align-items-center">
   <h2 class="text-center fs-3 mt-5 mb-5 pt-4 fw-bold">Ответы на часто задаваемые вопросы</h2>

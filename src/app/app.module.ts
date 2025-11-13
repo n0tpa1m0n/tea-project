@@ -11,6 +11,8 @@ import { CatalogComponent } from './pages/catalog/catalog.component';
 import { ProductComponent } from './pages/product/product.component';
 import { OrderComponent } from './pages/order/order.component';
 import { PopupComponent } from './shared/popup/popup.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { DescriptionSubstringPipe } from './shared/pipes/description-substring.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { PopupComponent } from './shared/popup/popup.component';
     CatalogComponent,
     ProductComponent,
     OrderComponent,
-    PopupComponent
+    PopupComponent,
+    FooterComponent,
+    DescriptionSubstringPipe
   ],
   imports: [
     BrowserModule,
