@@ -5,22 +5,22 @@
     <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
       <div class="form-row row mb-2">
         <div class="col col-lg-4">
-          <label for="name" class="form-label">Имя</label>
-          <input type="text" class="form-control" formControlName="name" required>
+          <label for="nameInput" class="form-label">Имя</label>
+          <input type="text" class="form-control" id="nameInput" formControlName="name" required>
           <div class="text-danger small" *ngIf="isFieldInvalid('name')">
             Можно вводить только буквы
           </div>
         </div>
         <div class="col col-lg-4">
-          <label for="lastName" class="form-label">Фамилия</label>
-          <input type="text" class="form-control" formControlName="last_name" required>
+          <label for="lastNameInput" class="form-label">Фамилия</label>
+          <input type="text" class="form-control" id="lastNameInput" formControlName="last_name" required>
           <div class="text-danger small" *ngIf="isFieldInvalid('last_name')">
             Можно вводить только буквы
           </div>
         </div>
         <div class="col col-lg-4">
-          <label for="phone" class="form-label">Телефон</label>
-          <input type="text" class="form-control" formControlName="phone" required>
+          <label for="phoneInput" class="form-label">Телефон</label>
+          <input type="text" class="form-control" id="phoneInput" formControlName="phone" required>
           <div class="text-danger small" *ngIf="isFieldInvalid('phone')">
             Номер должен содержать 11 цифр (может начинаться с +)
           </div>
@@ -29,31 +29,31 @@
 
       <div class="form-row row mb-3">
         <div class="form-group col-md-6">
-          <label for="country" class="form-label">Страна</label>
-          <input type="text" class="form-control" formControlName="country" required>
+          <label for="countryInput" class="form-label">Страна</label>
+          <input type="text" class="form-control" id="countryInput" formControlName="country" required>
         </div>
         <div class="form-group col-md-6">
-          <label for="zip" class="form-label">Индекс</label>
-          <input type="number" maxlength="6" class="form-control" formControlName="zip">
+          <label for="zipInput" class="form-label">Индекс</label>
+          <input type="number" maxlength="6" class="form-control" id="zipInput" formControlName="zip">
         </div>
       </div>
 
       <div class="form-group col-md mb-3">
-        <label for="product" class="form-label">Товар</label>
-        <input type="text" class="form-control" formControlName="product" [disabled]="true">
+        <label for="productInput" class="form-label">Товар</label>
+        <input type="text" class="form-control" id="productInput" formControlName="product" [disabled]="true">
       </div>
 
       <div class="form-group col-md mb-3">
-        <label for="address" class="form-label">Адрес</label>
-        <input type="text" class="form-control" formControlName="address" required>
+        <label for="addressInput" class="form-label">Адрес</label>
+        <input type="text" class="form-control" id="addressInput" formControlName="address" required>
         <div class="text-danger small" *ngIf="isFieldInvalid('address')">
           Можно вводить только буквы, цифры, пробелы, дефис и слеш
         </div>
       </div>
 
       <div class="form-group col-md mb-4">
-        <label for="comment" class="form-label">Комментарий к заказу</label>
-        <textarea class="form-control" formControlName="comment" rows="3"></textarea>
+        <label for="commentInput" class="form-label">Комментарий к заказу</label>
+        <textarea class="form-control" id="commentInput" formControlName="comment" rows="3"></textarea>
       </div>
 
       <div class="d-grid">

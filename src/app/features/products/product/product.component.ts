@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TeaService, Tea } from '../../services/tea.service';
+import { TeaService, Tea } from '../../../shared/services/tea.service';
 
 @Component({
   selector: 'app-product',
@@ -35,7 +35,6 @@ export class ProductComponent implements OnInit {
       error: (error) => {
         console.error('Error loading product:', error);
         this.loading = false;
-        // Можно добавить редирект на каталог или показ ошибки
       }
     });
   }

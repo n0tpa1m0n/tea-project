@@ -1,55 +1,40 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
-import { TeaService, Tea } from '../../services/tea.service';
-import { Subscription, timer } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { TeaService, Tea } from '../../../shared/services/tea.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-catalog',
+  templateUrl: './catalog.component.html',
+  styleUrls: ['./catalog.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy {
-  showPopup = false;
-  featuredTeas: Tea[] = [];
-  private popupSubscription?: Subscription;
+export class CatalogComponent implements OnInit {
+  teas: Tea[] = [];
+  loading = false;
+  error = false;
 
-  constructor(
-    private router: Router,
-    private teaService: TeaService
-  ) {}
+  constructor(private teaService: TeaService) {}
 
   ngOnInit() {
-    this.popupSubscription = timer(10000).subscribe(() => {
-      this.showPopup = true;
-    });
+    this.loadTeas();
+  }
+
+  loadTeas() {
+    this.loading = true;
+    this.error = false;
 
     this.teaService.getTeas().subscribe({
-      next: (teas) => {
-        this.featuredTeas = teas.slice(0, 6);
+      next: (teas: Tea[]) => {
+        this.teas = teas;
+        this.loading = false;
       },
-      error: (error) => {
-        console.error('Error loading teas:', error);
-        this.featuredTeas = this.getDefaultTeas();
+      error: (error: any) => {
+        this.error = true;
+        this.loading = false;
+        this.teas = this.getDefaultTeas();
       }
     });
   }
 
-  closePopup() {
-    this.showPopup = false;
-  }
-
-  navigateToCatalog() {
-    this.router.navigate(['/catalog']);
-    this.closePopup();
-  }
-
-  ngOnDestroy() {
-    if (this.popupSubscription) {
-      this.popupSubscription.unsubscribe();
-    }
-  }
-
-  private getDefaultTeas() {
+  private getDefaultTeas(): Tea[] {
     return [
       {
         id: 1,
