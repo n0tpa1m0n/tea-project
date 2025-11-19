@@ -1,30 +1,11 @@
 <div class="container mt-5 pt-4">
-  <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#bannerCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="assets/images/banner1.png" class="d-block w-100" alt="Баннер 1">
-      </div>
-      <div class="carousel-item">
-        <img src="assets/images/banner2.png" class="d-block w-100" alt="Баннер 2">
-      </div>
-      <div class="carousel-item">
-        <img src="assets/images/banner3.png" class="d-block w-100" alt="Баннер 3">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+
+  <div class="banner">
+
+    <img src="assets/images/banner1.png" class="d-block w-100" alt="Баннер 1">
+
   </div>
+
 
   <app-popup *ngIf="showPopup" (close)="closePopup()" (viewCatalog)="navigateToCatalog()"></app-popup>
 </div>
@@ -34,115 +15,48 @@
 <div class="container mb-5 d-flex flex-column align-items-center">
   <h2 class="text-center fs-3 mt-5 mb-5 pt-4 fw-bold">Ответы на часто задаваемые вопросы</h2>
 
-  <div class="accordion col-12 col-md-8" id="faqAccordion">
-    <div class="accordion-item mb-3">
-      <h2 class="accordion-header">
-        <button class="accordion-button bg-primary text-white" type="button"
-                data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                aria-expanded="true" aria-controls="collapseOne">
-          Собираете ли вы подарочные боксы?
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          <p>Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!</p>
-        </div>
-      </div>
-    </div>
+  <ngb-accordion class="accordion col-12 col-md-8" >
+    <ngb-panel class="accordion-item mb-3" title="Собираете ли вы подарочные боксы?">
+      <ng-template ngbPanelContent>
+        <p>Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!</p>
 
-    <div class="accordion-item mb-3">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed bg-primary text-white" type="button"
-                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                aria-expanded="false" aria-controls="collapseTwo">
-          Сколько у вас разновидностей чая?
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          <p>
-            Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-            Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-            ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-            lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-          </p>
-        </div>
-      </div>
-    </div>
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel class="accordion-item mb-3" title="          Какого объема у вас пачки чая?
+">
+      <ng-template ngbPanelContent>
+        <p>Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!</p>
 
-    <div class="accordion-item mb-3">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed bg-primary text-white" type="button"
-                data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                aria-expanded="false" aria-controls="collapseThree">
-          В какой срок осуществляется доставка?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          <p>
-            Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-            Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-            ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-            lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-          </p>
-          <ul>
-            <li>List item one</li>
-            <li>List item two</li>
-            <li>List item three</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel class="accordion-item mb-3" title="Собираете ли вы подарочные боксы?">
+      <ng-template ngbPanelContent>
+        <p>Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!</p>
 
-    <div class="accordion-item mb-3">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed bg-primary text-white" type="button"
-                data-bs-toggle="collapse" data-bs-target="#collapseFour"
-                aria-expanded="false" aria-controls="collapseFour">
-          У вас обновляется ассортимент?
-        </button>
-      </h2>
-      <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          <p>
-            Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-            et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-            faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-            mauris vel est.
-          </p>
-          <p>
-            Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-            Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-            inceptos himenaeos.
-          </p>
-        </div>
-      </div>
-    </div>
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel class="accordion-item mb-3" title="          В какой срок осуществляется доставка?
+">
+      <ng-template ngbPanelContent>
+        <p>Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!</p>
 
-    <div class="accordion-item mb-3">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed bg-primary text-white" type="button"
-                data-bs-toggle="collapse" data-bs-target="#collapseFive"
-                aria-expanded="false" aria-controls="collapseFive">
-          Какого объема у вас пачки чая?
-        </button>
-      </h2>
-      <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-        <div class="accordion-body">
-          <p>
-            Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-            et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-            faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-            mauris vel est.
-          </p>
-          <p>
-            Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-            Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-            inceptos himenaeos.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel class="accordion-item mb-3" title="          У вас обновляется ассортимент?
+">
+      <ng-template ngbPanelContent>
+        <p>Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!</p>
+
+      </ng-template>
+    </ngb-panel>
+
+  </ngb-accordion>
+
+
+
+
+
+
+
+
 </div>

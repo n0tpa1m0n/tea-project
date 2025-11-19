@@ -1,6 +1,9 @@
 .card-text{
   height: 90px;
 }
-
+.accordion-header{
+  --bs-accordion-btn-bg: var(--bs-primary);
+  --bs-accordion-btn-color: white;
+}
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
