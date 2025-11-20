@@ -1,4 +1,4 @@
-@charset "UTF-8";.card-text{height:90px}/*!
+@charset "UTF-8";.card-text{height:90px}.accordion-header{--bs-accordion-btn-bg: var(--bs-primary);--bs-accordion-btn-color: white}/*!
  * Bootstrap  v5.3.8 (https://getbootstrap.com/)
  * Copyright 2011-2025 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
